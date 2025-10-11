@@ -34,7 +34,7 @@ async def predict_transactons(body: PredictionReqBody):
 
 def main() -> None:
     print("Main starting point")
-  
+
 
 if __name__ == "__main__":
     app.setup()

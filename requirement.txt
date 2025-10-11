@@ -6,3 +6,4 @@ black
 pydantic
 requests
 python-dotenv
+scikit-learn
