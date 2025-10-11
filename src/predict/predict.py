@@ -17,6 +17,7 @@ def prep_data(df: pd.DataFrame):
 
 
 def predict_next_amount(df):
+    df = prep_data(df)
     x = df[["day", "week", "month"]]
     y = df["amount"]
     
