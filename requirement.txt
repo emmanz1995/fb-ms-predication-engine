@@ -1,0 +1,8 @@
+pandas
+numpy
+fastapi
+typing
+black
+pydantic
+requests
+python-dotenv
