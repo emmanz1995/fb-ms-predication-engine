@@ -14,10 +14,14 @@ async def fetch_transactions(queries) -> dict:
     print(current_page)
     
     try:
-        resp = await requests.get(url=f"{base_url}/api/v1/account/transactions")
+        resp = await requests.get(
+            url=f"{base_url}/api/v1/account/transactions"
+        )
+        
+        
         if resp.status_code == 400:
             raise Exception('Failed to get transactions')
         
         return resp.json()
     except Exception as e: 
-        print(f"Error occured here...", e)
+        print(f"Error occurred here...", e)

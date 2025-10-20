@@ -7,3 +7,5 @@ pydantic
 requests
 python-dotenv
 scikit-learn
+google-genai
+SQLAlchemy
