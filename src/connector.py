@@ -1,7 +1,8 @@
+import os
 import requests
-# from dotenv import load_dotenv
+from dotenv import load_dotenv
 
-base_url = "http://localhost:8083"
+base_url = os.environ.get("BASE_URL")
 
 
 async def fetch_transactions(queries) -> dict:

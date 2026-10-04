@@ -24,7 +24,7 @@ def read_root():
     }
 
 @app.post("/api/v1/predict")
-async def predict_transactons(body: PredictionReqBody):
+async def predict_transactions(body: PredictionReqBody):
     limit = body.limit
     current_page = body.current_page
     account_id = body.account_id
