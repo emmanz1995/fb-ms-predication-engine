@@ -12,13 +12,13 @@ async def fetch_transactions(queries) -> List[dict]:
     transactions = []
     try:
         resp = await requests.get(
-            url=f"{base_url}/api/v1/account/transactions?page=1&limit=10&accountId={account_id}"
+            url=f"{base_url}/api/v1/account/transactions?currentPage=1&limit=10&accountId={account_id}"
         )
         total_pages = resp.json()['pagination']['totalPages']
         
         for page in range(1, total_pages + 1):
             resp = await requests.get(
-                url=f"{base_url}/api/v1/account/transactions?page={page}&limit=10&accountId={account_id}"
+                url=f"{base_url}/api/v1/account/transactions?currentPage={page}&limit=10&accountId={account_id}"
             )
             
             
