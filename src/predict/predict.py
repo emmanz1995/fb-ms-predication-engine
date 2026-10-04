@@ -1,5 +1,5 @@
 from src.connector import fetch_transactions
-from google import genai
+# from google import genai
     
 
 async def predict_transactions(queries) -> dict:
