@@ -16,7 +16,7 @@ async def fetch_transactions(queries) -> List[dict]:
     token = ""
     try:
         resp = await requests.get(
-            url=f"{base_url}/api/v1/account/transactions?currentPage=1&limit=10&accountId={account_id}",
+            url=f"{base_url}/api/v1/transactions?currentPage=1&limit=10&accountId={account_id}",
             headers={
                 "Authorization": f"Bearer {token}"
             }
