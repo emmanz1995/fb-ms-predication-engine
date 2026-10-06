@@ -2,14 +2,14 @@ from src.connector import fetch_transactions
 # from google import genai
     
 
-async def predict_transactions(queries) -> dict:
-    print(f"Your queries: {queries}")
-    transactions = await fetch_transactions(queries) or None
+async def predict(account_id) -> dict:
+    print(f"Your account_id: {account_id}")
+    transactions = await fetch_transactions(account_id) or None
     
-    print(transactions)
     return {
         "predicted_next_transaction": {
             "amount": 12.3,
-            "category": "Food"              
+            "category": "Food",
+            "transactions": transactions             
         }
     }

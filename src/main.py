@@ -1,6 +1,7 @@
 from fastapi import FastAPI
+from fastapi.middleware.cors import CORSMiddleware
 from pydantic import BaseModel
-from src.predict.predict import predict_transactions
+from src.predict.predict import predict
 
 class PredictedTransaction(BaseModel):
     price: float
@@ -15,6 +16,20 @@ class PredictionReqBody(BaseModel):
     
 app = FastAPI()
 
+origins = [
+    "http://localhost",
+    "http://localhost:8083",
+    "http://localhost:8081",
+]
+
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=origins,
+    allow_credentials=True,
+    allow_methods=["*"],
+    allow_headers=["*"],
+)
+
 @app.get("/")
 def read_root():
     return {
@@ -22,10 +37,9 @@ def read_root():
     }
 
 @app.post("/api/v1/predict")
-async def predict_transactions(body: PredictionReqBody):
-    account_id = body.account_id
-    
-    predicted_transactions = await predict_transactions({"account_id": account_id})
+async def predict_transactions(payload: PredictionReqBody):
+    account_id = payload.account_id
+    predicted_transactions = await predict(account_id)
     return {"response": predicted_transactions}
 
 def main() -> None:
