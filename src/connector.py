@@ -7,11 +7,9 @@ from typing import List
 load_dotenv()
 base_url = os.environ.get("BASE_URL")
 
-async def fetch_transactions(account_id) -> List[dict]:
+async def fetch_transactions(account_id, token) -> List[dict]:
     transactions: List[dict] = []
     
-    #TODO: get access token somehow 
-    token = ""
     try:
         async with httpx.AsyncClient() as client:
             resp = await client.get(
@@ -42,7 +40,7 @@ async def fetch_transactions(account_id) -> List[dict]:
                 transactions.extend(transactions_page)
                 
                 
-                if resp.json()["pagination"]["totalPages"] < page:
+                if total_pages < page:
                     break;
                 
     except httpx.HTTPError:
