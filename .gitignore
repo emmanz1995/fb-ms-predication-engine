@@ -7,3 +7,5 @@ __pycache__/
 *$py.class
 
 *.pem
+
+docker-compose.yaml
