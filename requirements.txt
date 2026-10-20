@@ -10,3 +10,5 @@ scikit-learn
 google-genai
 SQLAlchemy
 uvicorn
+langchain
+jwt

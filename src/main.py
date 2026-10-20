@@ -38,7 +38,7 @@ def read_root():
 
 @app.post("/api/v1/predict")
 async def predict_transactions(payload: PredictionReqBody):
-    #TODO: get access token somehow 
+    #TODO: get access token from middleware 
     token = ""
     account_id = payload.account_id
     predicted_transactions = await predict(account_id, token)
