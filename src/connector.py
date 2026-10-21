@@ -43,7 +43,7 @@ async def fetch_transactions(account_id, token) -> List[dict]:
                 if total_pages < page:
                     break;
                 
-    except httpx.HTTPError:
+    except httpx.HTTPError as e:
         print("HTTP error:", e) 
         raise Exception("Failed to fetch transactions") from e
         
